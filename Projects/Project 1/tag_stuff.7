@@ -1,0 +1,40 @@
+.\" tag_stuff(7) manpage by jaurj1@ufl.edu (Juan Jauregui)
+.\"
+.TH TAG_STUFF 7
+.SH NAME
+TAG_STUFF - Allows one to get or set the tag of a process
+.SH SYNOPSIS
+The system call TAG_STUFF allows one to get or set the tag of a process, as defined by the process table struct mproc.
+
+.SH DESCRIPTION
+.de SP
+.if t .sp 0.4
+.if n .sp
+..
+Usage: _syscall(PM_PROC_NR, TAG_STUFF, &m);
+where m is a standard Minix message, with its parameters defined depending on whether you wish to
+
+a)get the tag of a process (requires root, or for the PID of interest to be the calling process's own PID):
+
+m.m7_i1 = (int)getpid();   //Send own PID to check permissions
+
+m.m7_i2 = (int)getuid();   //Send UID to check if 0 (root)
+
+m.m7_i3 = pid_in_question; //Send PID of interest
+
+m.m7_i4 = -1;              //-1 = Not setting a new tag
+
+m.m7_i5 = -1;            //No new_pid
+--------------------------------------------
+
+b)Set the tag of a process (requires root)
+
+m.m7_i1 = (int)getpid();   //Send own PID to check permissions
+
+m.m7_i2 = (int)getuid();   //Send UID to check if 0 (root)
+
+m.m7_i3 = pid_in_question; //Send PID of interest
+
+m.m7_i4 = 1;               //1 = Setting a new tag
+
+m.m7_i5 = new_pid;         //Send replacement PID
