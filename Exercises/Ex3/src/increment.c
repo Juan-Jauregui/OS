@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 		fclose(f);
 	}
 
-	(void) printf("\n");
+	//(void) printf("\n");
 	return 0;
 
 }

@@ -41,7 +41,7 @@ int main(int argc, char** argv){
 
 	for(int i = 0; i < num_children; i++){
 		if(getpid() != parent) break;		//If not the parent process, don't fork
-		pid = fork();							//Parents are allowed to fork all they want
+		pid = fork();		//Parents are allowed to fork all they want
 	}
 
 	//There was a forking error. Abort.
@@ -69,7 +69,7 @@ int main(int argc, char** argv){
 		if(DEBUG) printf("This is parent process %d waiting for its children to wrap up...\n",getpid());
 		wait(NULL);
 		if(DEBUG) printf("All children done. Exiting...\n");
-		printf("Done!");
+		printf("Done!\n");
 	}
 
 	return 0;
