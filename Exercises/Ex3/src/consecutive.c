@@ -10,7 +10,7 @@
 *
 * Does not like files that do not have numbers in them.
 *
-* Based on increment.c by Prof. Richard Newman
+* Author: Juan Jauregui
 */
 
 #include <stdio.h>
