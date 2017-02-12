@@ -1,7 +1,13 @@
-all: increment consecutive
+all: increment consecutive spawn
 
-increment:
+clean:
+	rm bin/*
+
+increment: src/increment.c
 	cc -o bin/increment src/increment.c
 
-consecutive:
+consecutive: src/consecutive.c
 	cc -o bin/consecutive src/consecutive.c
+
+spawn: src/spawn.c
+	cc -o bin/spawn src/spawn.c

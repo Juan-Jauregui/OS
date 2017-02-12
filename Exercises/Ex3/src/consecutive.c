@@ -35,9 +35,9 @@ int main(int argc, char *argv[]){
    /* Reads file line by line, interpreting each line as an int and storing it
     * in number. When EOF is reached, stops. */
 	while((rv = fscanf(file, "%d", &number)) != EOF){
-      //if previousNumber is set and it's not the same as number-1,
+		//if previousNumber is set and it's not the same as number-1,
 		if(previousNumber && previousNumber != (number-1)){
-         char* spaces = "    ";  //Four spaces for Formatting
+			char* spaces = "    ";  //Four spaces for Formatting
 			printf("%s%d: %d\n",spaces,previousLine,previousNumber);
 			printf("%s%d: %d\n",spaces,line,number);
 		}
