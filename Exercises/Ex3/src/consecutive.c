@@ -45,4 +45,5 @@ int main(int argc, char *argv[]){
 		previousLine = line++;      //Update line and previousLine
 	}
 	fclose(file);
+	return 0;
 }
